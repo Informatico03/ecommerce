@@ -20,7 +20,6 @@ main{
     justify-content: flex-start; /* alinhados da esquerda para a direita */
     padding-left: 480px;
     padding-top: 20px;
-    height: 700px;
 }
 .product{
     display: flex;
