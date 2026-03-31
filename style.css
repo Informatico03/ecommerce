@@ -84,6 +84,7 @@ main{
 .product{
     display: flex;
     flex-direction: column;
+    justify-content: center ;
     align-items: center;
     width: 180px;
     height: 230px;
@@ -94,10 +95,9 @@ main{
 }
 
 .product:hover{
-    width: 200px;
-    height: 240px;
     border-radius: 10%;
     transition: all 0.3s ease-in-out;
+    transform: scale(1.05); /* Aumenta levemente sem quebrar o layout */
 }
 
 .product img{
