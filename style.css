@@ -70,6 +70,19 @@ main{
     background-color: brown;
     padding-bottom: 50px;
 }
+/*ASIDE*/
+aside{
+    position: relative;
+    background-color: blue;
+    width: 23%;
+    height: 200px;
+    padding-top: 100px;
+    margin-left:0.5px;
+}
+aside ul{
+    position: relative;
+    list-style: none;
+}
 /* PRODUTO */
 .product-list{
     display: flex;
