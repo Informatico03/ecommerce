@@ -7,7 +7,7 @@
 header{
     width: 100%;
     height: 100px;
-    background-color: red;
+    background-color: #A47449;
     display: flex;
     align-items: center;
     justify-content: flex-start; /* título e menu lado a lado */
@@ -67,50 +67,80 @@ nav  a:hover {
 
 /* INICIA MAIN */
 main{
-    background-color: brown;
+    background-color: #DBA95C;
     padding-bottom: 50px;
+    display: flex; /* coloca aside e product-list lado a lado */
+    align-items: flex-start; /* alinha ao topo */
+    gap: 20px;
+    padding: 20px; /* espaço interno geral */
+    box-sizing: border-box;
 }
 /*ASIDE*/
 aside{
-    position: relative;
-    background-color: blue;
-    width: 23%;
-    height: 200px;
-    padding-top: 100px;
-    margin-left:0.5px;
+    position: sticky; /* permanece visível ao rolar */
+    top: 110px; /* abaixo do header */
+    background-color: #0b5fd6; /* cor mais suave */
+    width: 220px; /* largura fixa para a coluna lateral */
+    min-height: 150px;
+    padding: 18px;
+    border-radius: 10px;
+    box-shadow: 0 6px 18px rgba(0,0,0,0.12);
+    color: #fff;
+}
+aside h2{
+    margin: 0 0 12px 0;
+    font-size: 18px;
 }
 aside ul{
-    position: relative;
+    margin: 0;
+    padding: 0;
     list-style: none;
+}
+aside ul li{
+    margin-bottom: 8px;
+}
+aside ul li a{
+    color: #ffffff;
+    text-decoration: none;
+    display: block;
+    padding: 8px 10px;
+    border-radius: 6px;
+    transition: background 0.15s ease, transform 0.08s ease;
+}
+aside ul li a:hover{
+    background: rgba(255,255,255,0.06);
+    transform: translateX(4px);
 }
 /* PRODUTO */
 .product-list{
-    display: flex;
-    flex-wrap: wrap;        
-    gap: 10px;
-    justify-content: flex-start; /* alinhados da esquerda para a direita */
-    margin-left: 27%;
-    padding-top: 20px;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 produtos por linha */
+    gap: 20px; /* espaço entre itens */
+    justify-items: center; /* centra cada product dentro da célula */
+    margin-left: 0; /* remover deslocamento lateral */
+    padding-top: 0;
     cursor: pointer;
+    width: 100%;
+    box-sizing: border-box;
 }
 
 .product{
     display: flex;
     flex-direction: column;
-    justify-content: center ;
+    justify-content: center;
     align-items: center;
-    width: 180px;
-    height: 230px;
+    width: 100%; /* ocupa a célula da grid */
+    max-width: 220px; /* limita a largura do cartão */
+    padding: 12px;
     box-sizing: border-box;
-    background-color: aqua; 
+    background-color: aqua;
     border-radius: 15px;
-    transition: all 0.3s ease-in-out;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
 }
 
 .product:hover{
-    border-radius: 10%;
-    transition: all 0.3s ease-in-out;
-    transform: scale(1.05); /* Aumenta levemente sem quebrar o layout */
+    transform: translateY(-6px) scale(1.03);
+    box-shadow: 0 10px 24px rgba(0,0,0,0.12);
 }
 
 .product img{
@@ -136,4 +166,14 @@ footer{
     background-color: blue;
     height: 50px;
     padding-left: 50px;
+}
+
+/* Responsividade: 2 por linha em telas médias, 1 por linha em celular */
+@media (max-width: 1000px){
+    .product-list{ grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 520px){
+    .product-list{ grid-template-columns: 1fr; }
+    .search-input{ width: 140px; }
+    aside{ display: none; } /* esconde aside em telas pequenas */
 }
